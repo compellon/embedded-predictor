@@ -23,8 +23,8 @@ mvn install:install-file -Dfile=predictor-v4-project_2.11-4.39.14-SNAPSHOT.jar \
 ```
 
 
-The following dependencies have beeen added to the example pom file (pom.xml)
-For your own projects, add these dependencies to the pom.xml file
+The following dependencies have been added to the example pom file (pom.xml).
+For your projects, add these dependencies to the pom.xml file.
 ```
         <dependency>
             <groupId>com.compellon.predictor</groupId>
@@ -38,7 +38,7 @@ For your own projects, add these dependencies to the pom.xml file
         </dependency>
 ```
 
-## Running the provided example predicotor jar and input data set.
+## Running the provided example predictor jar and input data set.
 
 From the command line
 ```
@@ -46,4 +46,4 @@ mvn compile
 mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.args="arg1 arg2 arg3"
 
 ```
-where arg1 is a path to the predictor-resources jar, arg2 is a path to the dataset to predict, arg3 is list of column names
+where arg1 is a path to the predictor-resources jar, arg2 is a path to the dataset to predict, and arg3 is the list of column names
