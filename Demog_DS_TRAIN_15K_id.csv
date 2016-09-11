@@ -1,0 +1,8 @@
+UID,age,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country
+7561,36, Private,199346, Masters,14, Married-civ-spouse, Prof-specialty, Wife, White, Female,0,0,120, United-States
+7562,55, Local-gov,143949, Masters,14, Married-civ-spouse, Prof-specialty, Wife, White, Female,3103,0,45, United-States
+7563,33, Private,207201, HS-grad,9, Married-civ-spouse, Machine-op-inspct, Husband, White, Male,0,0,55, United-States
+7564,30, Private,430283, HS-grad,9, Married-civ-spouse, Adm-clerical, Wife, White, Female,7298,0,40, United-States
+7565,30, Private,378009, Masters,14, Married-civ-spouse, Exec-managerial, Husband, White, Male,0,0,50, United-States
+7566,40, Private,226608, Some-college,10, Divorced, Tech-support, Not-in-family, White, Male,0,0,30, Guatemala
+7567,49, Private,193047, HS-grad,9,SingleLooking, Craft-repair, Husband, White, Male,0,0,45, United-States

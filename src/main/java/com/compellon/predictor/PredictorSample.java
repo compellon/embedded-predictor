@@ -25,7 +25,7 @@ class PredictorSample {
     String predictorPath = args[0];
     String fileNameDefined = args[1];
     String schemaFields = args[2];
-    //String uniqueColumn = args[3];
+    String uniqueColumn = args[3];
 
     List<List<String>> testDataSet = new ArrayList();
 
@@ -46,7 +46,7 @@ class PredictorSample {
     scanner.close();
 
     /** An instance of PredictionRunner, used to load and run Binary and Numeric Predictions */
-    PredictionRunner runner = new PredictionRunner(predictorPath, PredictionRunner.PredictionType.Numeric);
+    PredictionRunner runner = new PredictionRunner(predictorPath, PredictionRunner.PredictionType.Binary);
 
     /** An instance of PredictionVisitor, used to pattern match on prediction type and print the responses on StdOut */
     PredictionRunner.PredictionVisitor<Void> visitor = new PredictionRunner.PredictionVisitor<Void>() {
@@ -66,6 +66,6 @@ class PredictorSample {
      * In this case, the Prediction responses are tied to the input row. */
     //runner.predict(testDataSet, schema, uniqueColumn, visitor);
     //runner.predict(testDataSet, schema, PredictionRunner.IdFormat.NoId, visitor);
-    runner.predict(testDataSet, schema, PredictionRunner.IdFormat.RowIsId, visitor);
+    runner.predict(testDataSet, schema, uniqueColumn, visitor);
   }
 }
