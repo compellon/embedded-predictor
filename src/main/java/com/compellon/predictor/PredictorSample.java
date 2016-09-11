@@ -25,7 +25,7 @@ class PredictorSample {
     String predictorPath = args[0];
     String fileNameDefined = args[1];
     String schemaFields = args[2];
-    String uniqueColumn = args[3];
+    // String uniqueColumn = args[3];
 
     List<List<String>> testDataSet = new ArrayList();
 
@@ -66,6 +66,6 @@ class PredictorSample {
      * In this case, the Prediction responses are tied to the input row. */
     //runner.predict(testDataSet, schema, uniqueColumn, visitor);
     //runner.predict(testDataSet, schema, PredictionRunner.IdFormat.NoId, visitor);
-    runner.predict(testDataSet, schema, uniqueColumn, visitor);
+    runner.predict(testDataSet, schema, PredictionRunner.IdFormat.RowIsId, visitor);
   }
 }
