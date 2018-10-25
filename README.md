@@ -23,7 +23,7 @@ mvn install:install-file -Dfile=predictor-v4-project_2.11-4.49.0-SNAPSHOT.jar \
 ```
 
 
-The following dependencies have been added to the example pom file (pom.xml). When creating your own projects, don't forget to add these dependencies to the projects pom.xml file.
+The following dependencies will have been added to the example pom file (pom.xml). When creating your own projects, don't forget to add these dependencies to the projects pom.xml file.
 ```
         <dependency>
             <groupId>com.compellon.predictor</groupId>
