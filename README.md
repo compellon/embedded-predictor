@@ -4,7 +4,7 @@
 Download and Install Maven
 
 Add rddlike_2.11-4.39.14-SNAPSHOT.jar jar and predictor-v4-project_2.11-4.39.14-SNAPSHOT.jar 
-to the *local* maven repository by running the following commands in the *predictorJarSample* directory:
+to the *local* maven repository by running the following commands in the same directory as the .jar files:
 
 ```
 mvn install:install-file -Dfile=rddlike_2.11-4.49.0-SNAPSHOT.jar \
@@ -23,8 +23,7 @@ mvn install:install-file -Dfile=predictor-v4-project_2.11-4.49.0-SNAPSHOT.jar \
 ```
 
 
-The following dependencies have been added to the example pom file (pom.xml).
-For your projects, add these dependencies to the pom.xml file.
+The following dependencies have been added to the example pom file (pom.xml). When creating your own projects, don't forget to add these dependencies to the projects pom.xml file.
 ```
         <dependency>
             <groupId>com.compellon.predictor</groupId>
