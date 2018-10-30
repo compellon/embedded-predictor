@@ -40,7 +40,13 @@ The following dependencies will have been added to the example pom file (pom.xml
 
 ## Running the provided example predictor jar and input data set.
 
-From the command line
+For the example project, use
+```
+mvn compile
+mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.args="1473635143909646133175PREDICTOR.jar Demog_DS_TRAIN_15K_id.csv UID,age,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country"
+```
+
+From your own predictor, use this form:
 ```
 mvn compile
 mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.args="arg1 arg2 arg3"
@@ -48,7 +54,3 @@ mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.
 ```
 where arg1 is the path to the predictor-resources jar, arg2 is the path to the dataset to predict, and arg3 is the list of column names
 
-For the example project, use
-```
-mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.args="1473635143909646133175PREDICTOR.jar Demog_DS_TRAIN_15K_id.csv UID,age,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country"
-```
