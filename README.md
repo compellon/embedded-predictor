@@ -11,19 +11,19 @@ Add the provided rddlike and predictor-v4-project .jar dependencies to the *loca
 
 ```
 # assumes a Compellon engine version 4.49.0-SNAPSHOT was used to create the target
-mvn install:install-file -Dfile=rddlike_2.11-4.49.0-SNAPSHOT.jar \
+mvn install:install-file -Dfile=rddlike_2.11-5.102.0-SNAPSHOT.jar \
  -DgroupId=com.compellon.predictor \
  -DartifactId=rddlike_2.11 \
- -Dversion=4.49.0-SNAPSHOT \
+ -Dversion=5.102.0-SNAPSHOT \
  -Dpackaging=jar
 ```
 
 ```
 # assumes a Compellon engine version 4.49.0-SNAPSHOT was used to create the target
-mvn install:install-file -Dfile=predictor-v4-project_2.11-4.49.0-SNAPSHOT.jar \
+mvn install:install-file -Dfile=predictor-v4-project_2.11-5.102.0-SNAPSHOT.jar \
  -DgroupId=com.compellon.predictor \
  -DartifactId=predictor-v4-project_2.11 \
- -Dversion=4.49.0-SNAPSHOT \
+ -Dversion=5.102.0-SNAPSHOT \
  -Dpackaging=jar
 ```
 
@@ -32,12 +32,12 @@ The following dependencies are already specified the example pom file (pom.xml).
         <dependency>
             <groupId>com.compellon.predictor</groupId>
             <artifactId>predictor-v4-project_2.11</artifactId>
-            <version>4.49.0-SNAPSHOT</version>
+            <version>5.102.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.compellon.predictor</groupId>
             <artifactId>rddlike_2.11</artifactId>
-            <version>4.49.0-SNAPSHOT</version>
+            <version>5.102.0-SNAPSHOT</version>
         </dependency>
 ```
 
@@ -59,11 +59,11 @@ To run your own predictor and input dataset, use this form:
 mvn compile
 mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.args="arg1 arg2 [arg3]"
 ```
-where arg1 is the path to the predictor jar, arg2 is the path to the dataset to predict, and arg3 is an optional to designate the name of a column containing unique ID's for each row if it is desired to not have the entired input row included in the results.
+where arg1 is the path to the predictor jar, arg2 is the path to the dataset to predict, and arg3 is optional to designate the name of a column containing unique ID's for each row if it is desired to not have the entired input row included in the results.
 
 ## Example curl command for downloading a predictor JAR
 
-Downloading a predictor JAR requires knowing the Target ID and having an authentication token for the account where it was created.  The download requires the use of the wget and the -L curl option since the request will be re-directed.
+Downloading a predictor JAR requires knowing the Target ID and having an authentication token for the account where it was created.  This example uses wget with curl (the -L curl option is required since the request will be re-directed).
 
 ```
 $ wget $(curl -L -w "%{url_effective}\n" --silent -i -X  \

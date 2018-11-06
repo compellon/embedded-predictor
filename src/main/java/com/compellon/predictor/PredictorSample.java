@@ -1,6 +1,5 @@
 package com.compellon.predictor;
 
-
 import com.compellon.predictor.BinaryPrediction;
 import com.compellon.predictor.NumericPrediction;
 import com.compellon.predictor.PredictionRunner;
@@ -18,34 +17,32 @@ class PredictorSample {
    * @param args An Array of Strings for command line arguments where
    *             args[0] is the path to the prediction-resources jar file
    *             args[1] is the path to the test data set, this example parses a csv file and converts each row to List<String>
-   *             args[2] is the list of Strings corresponding to each field in the data set
-   *             args[3] is the name of the uniqueColumn specified by the user which is to be used by the predictor as the unique-id column
+   *             args[2] is the name of the uniqueColumn specified by the user which is to be used by the predictor as the unique-id column
    */
   public static void main(String[] args) throws java.io.IOException {
     String predictorPath = args[0];
-    String fileNameDefined = args[1];
-    String schemaFields = args[2];
-    // String uniqueColumn = args[3];
+    String fileName = args[1];
+    String uniqueColumn = args.length > 2 ? args[2] : "";
 
-    List<List<String>> testDataSet = new ArrayList();
-
-    Scanner scanner = new Scanner(new File(fileNameDefined));
+    // Read in the prediction dataset and convert the data rows to a 2d list of strings
+    // The header (1st) row will be saved separately
+    Scanner scanner = new Scanner(new File(fileName));
     scanner.useDelimiter("\n");
+
+    String[] headerSplits = scanner.next().split(",");
+    List<String> header = Arrays.asList(headerSplits);
+
+    List<List<String>> dataRows = new ArrayList();
     String row;
     List<String> rowSplits;
-    scanner.next();
     while (scanner.hasNext()) {
       row = scanner.next();
       rowSplits = Arrays.asList(row.split(","));
-      testDataSet.add(rowSplits);
+      dataRows.add(rowSplits);
     }
-
-
-    String[] schemaSplits = schemaFields.split(",");
-    List<String> schema = Arrays.asList(schemaSplits);
     scanner.close();
 
-    /** An instance of PredictionRunner, used to load and run Binary and Numeric Predictions */
+    /** Change this from .Binary to .Numeric when using a numeric predictor */
     PredictionRunner runner = new PredictionRunner(predictorPath, PredictionRunner.PredictionType.Binary);
 
     /** An instance of PredictionVisitor, used to pattern match on prediction type and print the responses on StdOut */
@@ -62,10 +59,10 @@ class PredictorSample {
       }
     };
 
-    /** An example usage of predict method with a RowIsId Idformat.
-     * In this case, the Prediction responses are tied to the input row. */
-    //runner.predict(testDataSet, schema, uniqueColumn, visitor);
-    //runner.predict(testDataSet, schema, PredictionRunner.IdFormat.NoId, visitor);
-    runner.predict(testDataSet, schema, PredictionRunner.IdFormat.RowIsId, visitor);
+    if (uniqueColumn != "") {
+      runner.predict(dataRows, header, uniqueColumn, visitor);
+    } else {
+      runner.predict(dataRows, header, PredictionRunner.IdFormat.RowIsId, visitor);
+    }
   }
 }
