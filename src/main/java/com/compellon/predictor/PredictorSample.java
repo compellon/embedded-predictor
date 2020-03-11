@@ -4,6 +4,9 @@ import com.compellon.predictor.BinaryPrediction;
 import com.compellon.predictor.NumericPrediction;
 import com.compellon.predictor.PredictionRunner;
 import com.compellon.predictor.api.PredictionApi;
+
+import scala.reflect.ClassTag$;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,7 +52,21 @@ class PredictorSample {
     PredictionRunner.PredictionVisitor<Void> visitor = new PredictionRunner.PredictionVisitor<Void>() {
       @Override
       public Void caseBinary(PredictionApi.Out<BinaryPrediction> prediction) {
-        System.out.println(prediction);
+        String[] originalRow = ((Identifier.RowID) prediction.id().get()).value().get();
+        Contribution[] contributions = (Contribution[]) prediction.prediction().contributors()
+          .toArray(ClassTag$.MODULE$.apply(Contribution.class));
+        int response           = prediction.prediction().response();
+        double confidence      = (double) prediction.prediction().confidence().get();
+        boolean outOfRange     = prediction.prediction().outOfRange();
+        boolean newCombination = prediction.prediction().newCombination();
+
+        System.out.println("row = " + Arrays.toString(originalRow));
+        System.out.println("response = " + response);
+        System.out.println("confidence = " + confidence);
+        System.out.println("contributors = " + Arrays.toString(contributions));
+        System.out.println("outOfRange  = " + outOfRange);
+        System.out.println("newCombination = " + newCombination);
+
         return null;
       }
       @Override
