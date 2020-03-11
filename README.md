@@ -10,20 +10,20 @@ Compellon Dependencies: rddlike, predictor-v4-project (please contact Compellon 
 Add the provided rddlike and predictor-v4-project .jar dependencies to the *local* maven repository by running the following commands in the same directory as the .jar files:
 
 ```
-# assumes a Compellon engine version 4.49.0-SNAPSHOT was used to create the target
-mvn install:install-file -Dfile=rddlike_2.11-5.102.0-SNAPSHOT.jar \
+# assumes a Compellon engine version 5.117.2-SNAPSHOT was used to create the target
+mvn install:install-file -Dfile=rddlike_2.11-5.117.2-SNAPSHOT.jar \
  -DgroupId=com.compellon.predictor \
  -DartifactId=rddlike_2.11 \
- -Dversion=5.102.0-SNAPSHOT \
+ -Dversion=5.117.2-SNAPSHOT \
  -Dpackaging=jar
 ```
 
 ```
-# assumes a Compellon engine version 4.49.0-SNAPSHOT was used to create the target
-mvn install:install-file -Dfile=predictor-v4-project_2.11-5.102.0-SNAPSHOT.jar \
+# assumes a Compellon engine version 5.117.2-SNAPSHOT was used to create the target
+mvn install:install-file -Dfile=predictor-v4-project_2.11-5.117.2-SNAPSHOT.jar \
  -DgroupId=com.compellon.predictor \
  -DartifactId=predictor-v4-project_2.11 \
- -Dversion=5.102.0-SNAPSHOT \
+ -Dversion=5.117.2-SNAPSHOT \
  -Dpackaging=jar
 ```
 
@@ -32,12 +32,12 @@ The following dependencies are already specified the example pom file (pom.xml).
         <dependency>
             <groupId>com.compellon.predictor</groupId>
             <artifactId>predictor-v4-project_2.11</artifactId>
-            <version>5.102.0-SNAPSHOT</version>
+            <version>5.117.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.compellon.predictor</groupId>
             <artifactId>rddlike_2.11</artifactId>
-            <version>5.102.0-SNAPSHOT</version>
+            <version>5.117.2-SNAPSHOT</version>
         </dependency>
 ```
 
@@ -52,7 +52,7 @@ mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.
 
 You must get the predictor-v4-project and rddlike_2.11 jar files that match the engine version used to create the target from Compellon
 
-After your pom.xml file has been updated you can install the updated dependancies by changing the version numbers in the example above. 
+After your pom.xml file has been updated you can install the updated dependancies by changing the version numbers in the example above.
 
 To run your own predictor and input dataset, use this form:
 ```
