@@ -61,6 +61,12 @@ mvn exec:java -Dexec.mainClass="com.compellon.predictor.PredictorSample" -Dexec.
 ```
 where arg1 is the path to the predictor jar, arg2 is the path to the dataset to predict, and arg3 is optional to designate the name of a column containing unique ID's for each row if it is desired to not have the entired input row included in the results.
 
+You can also package a single fat jar and use it to make predictions without having to provide a classpath:
+```bash
+mvn package
+java -jar ./target/predictorJarSample-1.0-SNAPSHOT.jar 1473635143909646133175PREDICTOR.jar Demog_DS_TRAIN_15K_id.csv
+```
+
 ## Example curl command for downloading a predictor JAR
 
 Downloading a predictor JAR requires knowing the Target ID and having an authentication token for the account where it was created.  This example uses wget with curl (the -L curl option is required since the request will be re-directed).
