@@ -8,10 +8,7 @@ import com.compellon.predictor.api.PredictionApi;
 import scala.reflect.ClassTag$;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /** A java interface to instantiate the Simple Predictor and use its methods to load a predictor and run predictions */
 
@@ -47,6 +44,13 @@ class PredictorSample {
 
     /** Change this from .Binary to .Numeric when using a numeric predictor */
     PredictionRunner runner = new PredictionRunner(predictorPath, PredictionRunner.PredictionType.Binary);
+
+    // NOTE: You can also provide resource paths directly:
+    //Map<String, String> resources = new HashMap<>();
+    //for (File file : new File(predictorPath).listFiles()) {
+    //  resources.put(file.getName(), file.getAbsolutePath());
+    //}
+    //PredictionRunner runner = new PredictionRunner(resources, PredictionRunner.PredictionType.Binary);
 
     /** An instance of PredictionVisitor, used to pattern match on prediction type and print the responses on StdOut */
     PredictionRunner.PredictionVisitor<Void> visitor = new PredictionRunner.PredictionVisitor<Void>() {

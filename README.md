@@ -10,20 +10,20 @@ Compellon Dependencies: rddlike, predictor-v4-project (please contact Compellon 
 Add the provided rddlike and predictor-v4-project .jar dependencies to the *local* maven repository by running the following commands in the same directory as the .jar files:
 
 ```
-# assumes a Compellon engine version 5.117.2-SNAPSHOT was used to create the target
-mvn install:install-file -Dfile=rddlike_2.11-5.117.2-SNAPSHOT.jar \
+# assumes a Compellon engine version 5.118.1-3-g8d4ef37-SNAPSHOT was used to create the target
+mvn install:install-file -Dfile=rddlike_2.11-5.118.1-3-g8d4ef37-SNAPSHOT.jar \
  -DgroupId=com.compellon.predictor \
  -DartifactId=rddlike_2.11 \
- -Dversion=5.117.2-SNAPSHOT \
+ -Dversion=5.118.1-3-g8d4ef37-SNAPSHOT \
  -Dpackaging=jar
 ```
 
 ```
 # assumes a Compellon engine version 5.117.2-SNAPSHOT was used to create the target
-mvn install:install-file -Dfile=predictor-v4-project_2.11-5.117.2-SNAPSHOT.jar \
+mvn install:install-file -Dfile=predictor-v4-project_2.11-5.118.1-3-g8d4ef37-SNAPSHOT.jar \
  -DgroupId=com.compellon.predictor \
  -DartifactId=predictor-v4-project_2.11 \
- -Dversion=5.117.2-SNAPSHOT \
+ -Dversion=5.118.1-3-g8d4ef37-SNAPSHOT \
  -Dpackaging=jar
 ```
 
@@ -32,12 +32,12 @@ The following dependencies are already specified the example pom file (pom.xml).
         <dependency>
             <groupId>com.compellon.predictor</groupId>
             <artifactId>predictor-v4-project_2.11</artifactId>
-            <version>5.117.2-SNAPSHOT</version>
+            <version>5.118.1-3-g8d4ef37-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.compellon.predictor</groupId>
             <artifactId>rddlike_2.11</artifactId>
-            <version>5.117.2-SNAPSHOT</version>
+            <version>5.118.1-3-g8d4ef37-SNAPSHOT</version>
         </dependency>
 ```
 
